@@ -32,7 +32,7 @@ interface State {
 
 export const useStore = create<State>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       layers: {
         terrain: true, ortho: true, contours: true, envelope: true, sketch: true, roads: true,
         s1a: true, s2: true, parking: false, water: true, trees: true,

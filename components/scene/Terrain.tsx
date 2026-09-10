@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import * as THREE from "three";
 import { useStore } from "@/lib/store";
 import { localToUv } from "@/lib/geo";
+import { asset } from "@/lib/asset";
 
 /** Найвищий рівень ортофото, який витримає ця GPU: 8k (7 485×14 623, ~7 см/px), інакше 4k.
  *  Нативні 14 970×29 246 не влазять у maxTextureSize (16 384) — для них потрібне тайлування. */
@@ -14,7 +15,7 @@ function pickHiRes(gl: THREE.WebGLRenderer): string | null {
   // 8k у RGBA + мipmaps ≈ 0,6 ГБ; на машинах із малою пам'яттю (Chrome повідомляє deviceMemory) лишаємо 4k
   const mem = typeof navigator !== "undefined" ? (navigator as Navigator & { deviceMemory?: number }).deviceMemory : undefined;
   if (mem !== undefined && mem < 8) return null;
-  if (max >= 16384 && !touch) return "/terrain/ortho-8k.webp";
+  if (max >= 16384 && !touch) return asset("/terrain/ortho-8k.webp");
   return null;
 }
 
@@ -30,11 +31,11 @@ function prep(t: THREE.Texture, gl: THREE.WebGLRenderer) {
 /** Терен з terrain.glb; UV ортофото рахуються з georef (dx, dy, rot) на CPU.
  *  Текстура вантажиться прогресивно: 4k одразу, потім 8k, якщо GPU дозволяє. */
 export default function Terrain() {
-  const { scene } = useGLTF("/models/terrain.glb");
+  const { scene } = useGLTF(asset("/models/terrain.glb"));
   const gl = useThree((s) => s.gl);
   const showOrtho = useStore((s) => s.layers.ortho);
   const georef = useStore((s) => s.georef);
-  const base = useTexture("/terrain/ortho-4k.webp");
+  const base = useTexture(asset("/terrain/ortho-4k.webp"));
   const [hi, setHi] = useState<THREE.Texture | null>(null);
 
   const mesh = useMemo(() => {
@@ -89,4 +90,4 @@ export default function Terrain() {
     </mesh>
   );
 }
-useGLTF.preload("/models/terrain.glb");
+useGLTF.preload(asset("/models/terrain.glb"));

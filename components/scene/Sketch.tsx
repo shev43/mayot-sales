@@ -3,10 +3,11 @@ import { useGLTF } from "@react-three/drei";
 import { useEffect, useMemo } from "react";
 import * as THREE from "three";
 import { useStore } from "@/lib/store";
+import { asset } from "@/lib/asset";
 
 /** Ескіз архітекторів (Stage 3) з sketch.glb. Скло — BLEND, паркінг — X-ray за шаром */
 export default function Sketch() {
-  const { scene } = useGLTF("/models/sketch.glb");
+  const { scene } = useGLTF(asset("/models/sketch.glb"));
   const setSketchBox = useStore((s) => s.setSketchBox);
   const xray = useStore((s) => s.layers.parking);
 
@@ -42,4 +43,4 @@ export default function Sketch() {
 
   return <primitive object={obj} />;
 }
-useGLTF.preload("/models/sketch.glb");
+useGLTF.preload(asset("/models/sketch.glb"));

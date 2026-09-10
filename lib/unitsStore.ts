@@ -15,6 +15,7 @@ import {
 } from "@/lib/units";
 import sketchFile from "@/data/units.sketch.json";
 import poaFile from "@/data/units.poa.json";
+import { asset } from "@/lib/asset";
 
 /* ---------------- дані ---------------- */
 
@@ -345,7 +346,7 @@ export function galleryFor(u: Pick<Unit, "id" | "stage">, n = 3): string[] {
   let h = 0;
   for (let i = 0; i < u.id.length; i++) h = (h * 31 + u.id.charCodeAt(i)) >>> 0;
   const out: string[] = [];
-  for (let i = 0; i < n; i++) out.push(`/gallery/render-${String(pool[(h + i) % pool.length]).padStart(2, "0")}.webp`);
+  for (let i = 0; i < n; i++) out.push(asset(`/gallery/render-${String(pool[(h + i) % pool.length]).padStart(2, "0")}.webp`));
   return out;
 }
 
