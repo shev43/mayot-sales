@@ -10,6 +10,7 @@ import Contours from "./Contours";
 import Envelope from "./Envelope";
 import Sketch from "./Sketch";
 import Roads from "./Roads";
+import Sun from "./Sun";
 
 function CameraRig() {
   const ref = useRef<CameraControlsImpl>(null);
@@ -65,20 +66,7 @@ export default function Scene() {
     >
       <color attach="background" args={["#e9ecf0"]} />
       <fog attach="fog" args={["#e9ecf0", 1400, 3200]} />
-      <hemisphereLight args={["#dfe7ee", "#5b6a4a", 0.55]} />
-      <directionalLight
-        position={[400, 700, 300]}
-        intensity={1.6}
-        castShadow
-        shadow-mapSize={[2048, 2048]}
-        shadow-camera-left={-450}
-        shadow-camera-right={450}
-        shadow-camera-top={450}
-        shadow-camera-bottom={-450}
-        shadow-camera-near={50}
-        shadow-camera-far={2000}
-        shadow-bias={-0.0006}
-      />
+      <Sun />
       <Suspense fallback={null}>
         {layers.terrain && <Terrain />}
         {layers.contours && <Contours />}

@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { Unbounded, Golos_Text } from "next/font/google";
 import "./globals.css";
 
-// Cormorant Garamond має кириличний subset; DM Sans — лише латиниця,
-// для української відпрацьовує system-ui з fallback-стеку (див. README).
-const display = Cormorant_Garamond({
+// Система A: Unbounded — заголовки й великі числа, Golos Text — увесь інший текст.
+// Обидва мають кириличний subset.
+const display = Unbounded({
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "500"],
   variable: "--font-display",
   display: "swap",
 });
-const sans = DM_Sans({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500"],
+const sans = Golos_Text({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600"],
   variable: "--font-sans",
   display: "swap",
 });

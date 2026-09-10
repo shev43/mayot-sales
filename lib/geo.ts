@@ -16,6 +16,7 @@ export const META = meta as {
   uphill_xz: number[];
   slope_pct: number;
   storeys: { name: string; elev: number; y: number }[];
+  z0_baltic_m: number; // Балтійська висота DXF Z=0 (зі зйомки 1:500)
 };
 
 type Grid = {
