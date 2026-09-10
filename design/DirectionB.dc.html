@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500&family=Golos+Text:wght@400;500;600&display=swap">
+  <style>
+    body { margin: 0; background: #1c1f1e; font-family: "Golos Text", "Segoe UI", Tahoma, sans-serif; color: #f5f1ea; }
+    a { color: #c9a96e; } a:hover { color: #e0c48f; }
+  </style>
+</helmet>
+<div style="position: relative; width: 720px; height: 450px; overflow: hidden; background: #1c1f1e; padding: 24px 28px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px;">
+  <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid rgba(245,241,234,0.16); padding-bottom: 10px;">
+    <span style="font-size: 12px; color: #9aa59b;">Напрям B · Нічний екран — увесь інтерфейс темний</span>
+    <span style="font-size: 11px; color: #6f7a70;">ескіз</span>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; flex-grow: 1; min-height: 0;">
+    <div style="grid-column: span 5; display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-family: 'Unbounded', 'Arial Black', sans-serif; font-weight: 300; font-size: 30px; line-height: 1.05; color: #f5f1ea; text-wrap: balance;">Родинний курорт на південному схилі</div>
+      <div style="font-size: 12px; line-height: 1.5; color: #9aa59b; max-width: 28ch;">Той самий лад, що в A, але на графітовому тлі: для салону продажів із притемненим світлом і великого екрана.</div>
+      <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 4px; font-size: 12px; font-variant-numeric: tabular-nums;">
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(245,241,234,0.12); padding-bottom: 5px;"><span style="color: #9aa59b;">Ухил</span><span style="color: #f5f1ea;">19,7 %</span></div>
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(245,241,234,0.12); padding-bottom: 5px;"><span style="color: #9aa59b;">Відмітки</span><span style="color: #f5f1ea;">899 – 987 м</span></div>
+        <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(245,241,234,0.12); padding-bottom: 5px;"><span style="color: #9aa59b;">Продано</span><span style="color: #f5f1ea;">0 із 213</span></div>
+      </div>
+    </div>
+    <div style="grid-column: span 7; display: flex; flex-direction: column; gap: 10px; min-height: 0;">
+      <div style="flex-grow: 1; border: 1px solid rgba(245,241,234,0.16); background: #232726; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #6f7a70;">Сцена — нічне освітлення, тепле світло 2700K у вікнах</div>
+      <div style="display: flex; gap: 0; border: 1px solid rgba(245,241,234,0.16);">
+        <div style="padding: 9px 12px; font-size: 12px; font-weight: 600; color: #1c1f1e; background: #f5f1ea;">Ортофото</div>
+        <div style="padding: 9px 12px; font-size: 12px; color: #9aa59b; border-left: 1px solid rgba(245,241,234,0.16);">Горизонталі</div>
+        <div style="padding: 9px 12px; font-size: 12px; color: #9aa59b; border-left: 1px solid rgba(245,241,234,0.16);">Межі</div>
+        <div style="padding: 9px 12px; font-size: 12px; color: #9aa59b; border-left: 1px solid rgba(245,241,234,0.16);">Ескіз</div>
+      </div>
+    </div>
+  </div>
+  <div style="display: flex; justify-content: space-between; font-size: 11px; color: #6f7a70;">
+    <span>Плюс: драматично на великому екрані · Мінус: важче для денної роботи на планшеті</span>
+    <span>золото — лише для станів</span>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

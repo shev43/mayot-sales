@@ -34,6 +34,10 @@ export const UPHILL_XZ: Vec2 = [META.uphill_xz[0], META.uphill_xz[1]];
 /** те саме у план-координатах (x, north) */
 export const UPHILL_PLAN: Vec2 = [UPHILL_XZ[0], -UPHILL_XZ[1]];
 
+/** Габарити ескізу (sketch.glb) у сцені — відомі наперед, щоб конверт і пресети
+ *  не залежали від завантаження моделі (QA P0). Уточнюються після завантаження. */
+export const SKETCH_BOX_XZ: { min: Vec2; max: Vec2 } = { min: [113.8, -335.3], max: [263.1, -99.4] };
+
 export const SCENE_CENTER_XZ: Vec2 = [
   (META.scene_bbox.min[0] + META.scene_bbox.max[0]) / 2,
   (META.scene_bbox.min[2] + META.scene_bbox.max[2]) / 2,

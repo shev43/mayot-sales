@@ -1,7 +1,7 @@
 "use client";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { defaultGeoref, defaultEnvelope, type Georef, type Envelope, type Vec2 } from "@/lib/geo";
+import { defaultGeoref, defaultEnvelope, SKETCH_BOX_XZ, type Georef, type Envelope, type Vec2 } from "@/lib/geo";
 
 export type LayerKey =
   | "terrain" | "ortho" | "contours" | "envelope" | "sketch" | "roads" | "s1a" | "s2" | "parking" | "water" | "trees";
@@ -44,13 +44,14 @@ export const useStore = create<State>()(
       georef: defaultGeoref(),
       setGeoref: (g) => set((s) => ({ georef: { ...s.georef, ...g } })),
       resetGeoref: () => set({ georef: defaultGeoref() }),
-      envelope: null,
+      // Конверт ініціалізується одразу з відомих габаритів ескізу (QA P0):
+      // не залежить від того, чи завантажено sketch.glb і чи увімкнено шар.
+      envelope: defaultEnvelope(SKETCH_BOX_XZ),
       setEnvelope: (e) =>
-        set((s) => ({ envelope: { ...(s.envelope ?? defaultEnvelope(s.sketchBox)), ...e } })),
-      resetEnvelope: () => set((s) => ({ envelope: defaultEnvelope(s.sketchBox) })),
+        set((s) => ({ envelope: { ...(s.envelope ?? defaultEnvelope(s.sketchBox ?? SKETCH_BOX_XZ)), ...e } })),
+      resetEnvelope: () => set((s) => ({ envelope: defaultEnvelope(s.sketchBox ?? SKETCH_BOX_XZ) })),
       sketchBox: null,
-      setSketchBox: (b) =>
-        set((s) => ({ sketchBox: b, envelope: s.envelope ?? defaultEnvelope(b) })),
+      setSketchBox: (b) => set({ sketchBox: b }),
       lang: "uk",
       setLang: (l) => set({ lang: l }),
       hour: 10,

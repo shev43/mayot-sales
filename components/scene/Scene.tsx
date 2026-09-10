@@ -4,7 +4,7 @@ import { CameraControls } from "@react-three/drei";
 import { Suspense, useEffect, useRef } from "react";
 import type CameraControlsImpl from "camera-controls";
 import { useStore, type Preset } from "@/lib/store";
-import { SCENE_CENTER_XZ, envelopePoint, heightAt, ENVELOPE } from "@/lib/geo";
+import { SCENE_CENTER_XZ, SKETCH_BOX_XZ, envelopePoint, heightAt, ENVELOPE } from "@/lib/geo";
 import Terrain from "./Terrain";
 import Contours from "./Contours";
 import Envelope from "./Envelope";
@@ -29,9 +29,8 @@ function CameraRig() {
       const py = ty + dist * Math.sin(el);
       c.setLookAt(px, py, pz, tx, ty, tz, smooth);
     };
-    const sk = box
-      ? [(box.min[0] + box.max[0]) / 2, (box.min[1] + box.max[1]) / 2]
-      : SCENE_CENTER_XZ;
+    const bx = box ?? SKETCH_BOX_XZ;
+    const sk = [(bx.min[0] + bx.max[0]) / 2, (bx.min[1] + bx.max[1]) / 2];
     const p: Preset = preset;
     if (p === "Overview") look(SCENE_CENTER_XZ[0], SCENE_CENTER_XZ[1], 900, 150, 42);
     else if (p === "Top") look(sk[0], sk[1], 520, 180, 88);
