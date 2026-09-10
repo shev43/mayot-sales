@@ -29,10 +29,10 @@ jobs:
         env:
           STATIC_EXPORT: "1"
           NEXT_PUBLIC_BASE_PATH: /mayot-sales
-      - run: touch out/.nojekyll
+      - run: touch .next-export/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: out
+          path: .next-export
 
   deploy:
     needs: build
