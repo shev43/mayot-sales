@@ -11,6 +11,9 @@ import { localToUv } from "@/lib/geo";
 function pickHiRes(gl: THREE.WebGLRenderer): string | null {
   const max = gl.capabilities.maxTextureSize;
   const touch = typeof navigator !== "undefined" && navigator.maxTouchPoints > 1;
+  // 8k у RGBA + мipmaps ≈ 0,6 ГБ; на машинах із малою пам'яттю (Chrome повідомляє deviceMemory) лишаємо 4k
+  const mem = typeof navigator !== "undefined" ? (navigator as Navigator & { deviceMemory?: number }).deviceMemory : undefined;
+  if (mem !== undefined && mem < 8) return null;
   if (max >= 16384 && !touch) return "/terrain/ortho-8k.webp";
   return null;
 }
