@@ -78,6 +78,7 @@ type GeorefFile = {
   height_m: number;
   corners_crs: { ul: number[]; lr: number[] };
   local_to_crs: { dx: number | null; dy: number | null; rotDeg: number | null; scale: number };
+  envelope?: { cx: number; cz: number; rotDeg: number } | null;
 };
 export const GEOREF_FILE = georefFile as GeorefFile;
 
@@ -128,6 +129,9 @@ export interface Envelope {
 
 /** ASSUMED-посадка: ch.0 — на нижньому краю ескізу, вісь = угору по схилу */
 export function defaultEnvelope(sketch: { min: Vec2; max: Vec2 } | null): Envelope {
+  // збережена на /calibrate посадка конверта має пріоритет над ASSUMED-розрахунком
+  const saved = GEOREF_FILE.envelope;
+  if (saved && Number.isFinite(saved.cx) && Number.isFinite(saved.cz)) return { cx: saved.cx, cz: saved.cz, rotDeg: saved.rotDeg ?? 0 };
   if (!sketch) return { cx: SCENE_CENTER_XZ[0], cz: SCENE_CENTER_XZ[1], rotDeg: 0 };
   const u = UPHILL_XZ;
   const corners: Vec2[] = [

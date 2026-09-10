@@ -59,8 +59,10 @@ export const useStore = create<State>()(
       setSun: (hour, month) => set({ hour, month }),
     }),
     {
-      name: "mayot-scene-v2", // v2: georef тепер із даних зйомки, старе локальне значення відкидаємо
-      partialize: (s) => ({ georef: s.georef, envelope: s.envelope, layers: s.layers, lang: s.lang }),
+      // v3: georef і envelope НЕ персистяться — єдине джерело правди data/georef.json
+      // (зберігається кнопкою на /calibrate). Інакше браузер показує застаріле значення.
+      name: "mayot-scene-v3",
+      partialize: (s) => ({ layers: s.layers, lang: s.lang }),
     },
   ),
 );
