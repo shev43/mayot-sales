@@ -4,9 +4,9 @@ import { persist } from "zustand/middleware";
 import { defaultGeoref, defaultEnvelope, type Georef, type Envelope, type Vec2 } from "@/lib/geo";
 
 export type LayerKey =
-  | "terrain" | "ortho" | "contours" | "envelope" | "sketch" | "s1a" | "s2" | "parking" | "water" | "trees";
+  | "terrain" | "ortho" | "contours" | "envelope" | "sketch" | "roads" | "s1a" | "s2" | "parking" | "water" | "trees";
 
-export type Preset = "Overview" | "S1A" | "S2" | "S3" | "Entrance";
+export type Preset = "Overview" | "Top" | "S1A" | "S2" | "S3" | "Entrance";
 export type Lang = "uk" | "en";
 
 interface State {
@@ -34,7 +34,7 @@ export const useStore = create<State>()(
   persist(
     (set, get) => ({
       layers: {
-        terrain: true, ortho: true, contours: true, envelope: true, sketch: true,
+        terrain: true, ortho: true, contours: true, envelope: true, sketch: true, roads: true,
         s1a: true, s2: true, parking: false, water: true, trees: true,
       },
       toggleLayer: (k) => set((s) => ({ layers: { ...s.layers, [k]: !s.layers[k] } })),
@@ -58,7 +58,7 @@ export const useStore = create<State>()(
       setSun: (hour, month) => set({ hour, month }),
     }),
     {
-      name: "mayot-scene",
+      name: "mayot-scene-v2", // v2: georef тепер із даних зйомки, старе локальне значення відкидаємо
       partialize: (s) => ({ georef: s.georef, envelope: s.envelope, layers: s.layers, lang: s.lang }),
     },
   ),

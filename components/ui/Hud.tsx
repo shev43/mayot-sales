@@ -4,8 +4,8 @@ import { useStore, type LayerKey, type Preset } from "@/lib/store";
 import { t } from "@/lib/i18n";
 import { META } from "@/lib/geo";
 
-const LAYERS: LayerKey[] = ["ortho", "contours", "envelope", "sketch", "parking"];
-const PRESETS: Preset[] = ["Overview", "S3", "S2", "S1A", "Entrance"];
+const LAYERS: LayerKey[] = ["ortho", "contours", "envelope", "sketch", "roads", "parking"];
+const PRESETS: Preset[] = ["Overview", "Top", "S3", "S2", "S1A", "Entrance"];
 
 export default function Hud() {
   const { layers, toggleLayer, preset, setPreset, lang, setLang } = useStore();

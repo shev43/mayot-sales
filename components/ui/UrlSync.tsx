@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { useStore, type LayerKey, type Preset } from "@/lib/store";
 
-const PRESETS: Preset[] = ["Overview", "S1A", "S2", "S3", "Entrance"];
-const LAYER_KEYS: LayerKey[] = ["terrain", "ortho", "contours", "envelope", "sketch", "s1a", "s2", "parking", "water", "trees"];
+const PRESETS: Preset[] = ["Overview", "Top", "S1A", "S2", "S3", "Entrance"];
+const LAYER_KEYS: LayerKey[] = ["terrain", "ortho", "contours", "envelope", "sketch", "roads", "s1a", "s2", "parking", "water", "trees"];
 
 /** Кадр задається адресою: ?preset=S3&layers=ortho,sketch,envelope&hud=0
  *  layers — повний список увімкнених шарів (решта вимикається); terrain завжди увімкнений. */

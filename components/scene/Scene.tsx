@@ -9,6 +9,7 @@ import Terrain from "./Terrain";
 import Contours from "./Contours";
 import Envelope from "./Envelope";
 import Sketch from "./Sketch";
+import Roads from "./Roads";
 
 function CameraRig() {
   const ref = useRef<CameraControlsImpl>(null);
@@ -33,6 +34,7 @@ function CameraRig() {
       : SCENE_CENTER_XZ;
     const p: Preset = preset;
     if (p === "Overview") look(SCENE_CENTER_XZ[0], SCENE_CENTER_XZ[1], 900, 150, 42);
+    else if (p === "Top") look(sk[0], sk[1], 520, 180, 88);
     else if (p === "S3") look(sk[0], sk[1], 380, 160, 30);
     else if (env && p === "S2") { const q = envelopePoint(env, 260, ENVELOPE.width / 2); look(q[0], q[1], 260, 160, 28); }
     else if (env && p === "S1A") { const q = envelopePoint(env, 360, ENVELOPE.width / 2); look(q[0], q[1], 220, 170, 26); }
@@ -83,6 +85,7 @@ export default function Scene() {
         {layers.contours && <Contours />}
         {layers.envelope && <Envelope />}
         {layers.sketch && <Sketch />}
+        {layers.roads && <Roads />}
       </Suspense>
       <CameraRig />
     </Canvas>
