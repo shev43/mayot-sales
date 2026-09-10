@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MAYOT · 3D Sales Model
 
-## Getting Started
+Інтерактивна 3D-модель родинного курорту MAYOT (Яремче, Карпати) для дня продажів:
+терен із моделі архітекторів, ортофото у прив'язці УСК-2000 / LCS-26, ескіз третьої
+черги, межі ділянки за завданням, сонце за датою й часом доби, два набори даних
+юнітів — «Ескіз» (149) і «За завданням» (213 · 11 747 м²).
 
-First, run the development server:
+## Запуск
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Відкрити http://localhost:3000. Сторінка `/calibrate` — уточнення прив'язки терену до
+ортофото (у режимі розробки результат зберігається в `data/georef.json`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Кадр можна задати адресою: `/?preset=S3&layers=ortho,sketch&hud=0&lang=en`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Структура
 
-## Learn More
+| Тека | Вміст |
+|---|---|
+| `app/` | сторінки Next.js (сцена, калібрування) |
+| `components/scene/` | 3D: терен, ортофото, горизонталі, межі, ескіз, дороги, сонце |
+| `components/ui/` | інтерфейс сцени |
+| `lib/` | геометрія та геоприв'язка, сонце, юніти, локалізація |
+| `data/` | сітка висот, плити, зони ескізу, прив'язка, юніти |
+| `public/` | моделі GLB, ортофото WebP, галерея рендерів |
+| `scripts/` | генерація даних і кадрів |
+| `tests/` | vitest |
 
-To learn more about Next.js, take a look at the following resources:
+## Дані
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Джерела — модель архітекторів (DXF / BIMx), ортофото 3,6 см/px, топозйомка 1:500.
+У репозиторії лише похідні файли (GLB, WebP, JSON). Юніти набору «Ескіз» —
+схематичні відсіки на реальних плитах перекриттів; набір «За завданням» — за
+таблицями проєктного завдання.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Стек
 
-## Deploy on Vercel
+Next.js 14 · React Three Fiber · drei · zustand · Tailwind CSS · vitest · Playwright.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Ліцензія
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Усі права застережено. Копіювання та використання без письмового дозволу
+правовласника заборонено — див. [LICENSE](LICENSE).
