@@ -1,0 +1,345 @@
+[
+ {
+  "file": "render-01.webp",
+  "source": "Візуалізації.pdf",
+  "page": 1,
+  "w": 1800,
+  "h": 1272
+ },
+ {
+  "file": "render-02.webp",
+  "source": "Візуалізації.pdf",
+  "page": 2,
+  "w": 1400,
+  "h": 2489
+ },
+ {
+  "file": "render-03.webp",
+  "source": "Візуалізації.pdf",
+  "page": 3,
+  "w": 1800,
+  "h": 1349
+ },
+ {
+  "file": "render-04.webp",
+  "source": "Візуалізації.pdf",
+  "page": 4,
+  "w": 1800,
+  "h": 1349
+ },
+ {
+  "file": "render-05.webp",
+  "source": "Візуалізації.pdf",
+  "page": 5,
+  "w": 1400,
+  "h": 2489
+ },
+ {
+  "file": "render-06.webp",
+  "source": "Візуалізації.pdf",
+  "page": 6,
+  "w": 1800,
+  "h": 1349
+ },
+ {
+  "file": "render-07.webp",
+  "source": "Візуалізації.pdf",
+  "page": 7,
+  "w": 1800,
+  "h": 1349
+ },
+ {
+  "file": "render-08.webp",
+  "source": "Візуалізації.pdf",
+  "page": 8,
+  "w": 1700,
+  "h": 2267
+ },
+ {
+  "file": "render-09.webp",
+  "source": "Візуалізації.pdf",
+  "page": 9,
+  "w": 1800,
+  "h": 1440
+ },
+ {
+  "file": "render-10.webp",
+  "source": "Візуалізації.pdf",
+  "page": 10,
+  "w": 1800,
+  "h": 1157
+ },
+ {
+  "file": "render-11.webp",
+  "source": "Візуалізації.pdf",
+  "page": 11,
+  "w": 1800,
+  "h": 2250
+ },
+ {
+  "file": "render-12.webp",
+  "source": "Візуалізації.pdf",
+  "page": 12,
+  "w": 1800,
+  "h": 1157
+ },
+ {
+  "file": "render-13.webp",
+  "source": "Візуалізації.pdf",
+  "page": 13,
+  "w": 1800,
+  "h": 1800
+ },
+ {
+  "file": "render-14.webp",
+  "source": "Візуалізації.pdf",
+  "page": 14,
+  "w": 1800,
+  "h": 1349
+ },
+ {
+  "file": "render-15.webp",
+  "source": "Візуалізації.pdf",
+  "page": 15,
+  "w": 1400,
+  "h": 2489
+ },
+ {
+  "file": "render-16.webp",
+  "source": "Візуалізації.pdf",
+  "page": 16,
+  "w": 1700,
+  "h": 2267
+ },
+ {
+  "file": "render-17.webp",
+  "source": "Візуалізації.pdf",
+  "page": 17,
+  "w": 1800,
+  "h": 1800
+ },
+ {
+  "file": "render-18.webp",
+  "source": "Візуалізації.pdf",
+  "page": 18,
+  "w": 1700,
+  "h": 2267
+ },
+ {
+  "file": "render-19.webp",
+  "source": "Візуалізації.pdf",
+  "page": 19,
+  "w": 1700,
+  "h": 2267
+ },
+ {
+  "file": "render-20.webp",
+  "source": "Візуалізації.pdf",
+  "page": 20,
+  "w": 1800,
+  "h": 1272
+ },
+ {
+  "file": "mood-01-1.webp",
+  "source": "К1 Муд.pdf",
+  "page": 1,
+  "w": 1200,
+  "h": 794
+ },
+ {
+  "file": "mood-01-2.webp",
+  "source": "К1 Муд.pdf",
+  "page": 1,
+  "w": 648,
+  "h": 809
+ },
+ {
+  "file": "mood-01-3.webp",
+  "source": "К1 Муд.pdf",
+  "page": 1,
+  "w": 991,
+  "h": 1242
+ },
+ {
+  "file": "mood-01-4.webp",
+  "source": "К1 Муд.pdf",
+  "page": 1,
+  "w": 1159,
+  "h": 559
+ },
+ {
+  "file": "mood-01-5.webp",
+  "source": "К1 Муд.pdf",
+  "page": 1,
+  "w": 884,
+  "h": 882
+ },
+ {
+  "file": "mood-01-6.webp",
+  "source": "К1 Муд.pdf",
+  "page": 1,
+  "w": 543,
+  "h": 833
+ },
+ {
+  "file": "mood-02-1.webp",
+  "source": "К1 Муд.pdf",
+  "page": 2,
+  "w": 752,
+  "h": 918
+ },
+ {
+  "file": "mood-02-2.webp",
+  "source": "К1 Муд.pdf",
+  "page": 2,
+  "w": 612,
+  "h": 917
+ },
+ {
+  "file": "mood-02-3.webp",
+  "source": "К1 Муд.pdf",
+  "page": 2,
+  "w": 632,
+  "h": 632
+ },
+ {
+  "file": "mood-02-4.webp",
+  "source": "К1 Муд.pdf",
+  "page": 2,
+  "w": 779,
+  "h": 785
+ },
+ {
+  "file": "mood-02-5.webp",
+  "source": "К1 Муд.pdf",
+  "page": 2,
+  "w": 511,
+  "h": 636
+ },
+ {
+  "file": "mood-02-6.webp",
+  "source": "К1 Муд.pdf",
+  "page": 2,
+  "w": 768,
+  "h": 960
+ },
+ {
+  "file": "mood-02-7.webp",
+  "source": "К1 Муд.pdf",
+  "page": 2,
+  "w": 667,
+  "h": 667
+ },
+ {
+  "file": "mood-02-8.webp",
+  "source": "К1 Муд.pdf",
+  "page": 2,
+  "w": 783,
+  "h": 781
+ },
+ {
+  "file": "mood-02-9.webp",
+  "source": "К1 Муд.pdf",
+  "page": 2,
+  "w": 556,
+  "h": 443
+ },
+ {
+  "file": "mood-03-1.webp",
+  "source": "К1 Муд.pdf",
+  "page": 3,
+  "w": 905,
+  "h": 1232
+ },
+ {
+  "file": "mood-03-2.webp",
+  "source": "К1 Муд.pdf",
+  "page": 3,
+  "w": 705,
+  "h": 1057
+ },
+ {
+  "file": "mood-04-1.webp",
+  "source": "К1 Муд.pdf",
+  "page": 4,
+  "w": 600,
+  "h": 738
+ },
+ {
+  "file": "mood-04-2.webp",
+  "source": "К1 Муд.pdf",
+  "page": 4,
+  "w": 1200,
+  "h": 1444
+ },
+ {
+  "file": "mood-04-3.webp",
+  "source": "К1 Муд.pdf",
+  "page": 4,
+  "w": 615,
+  "h": 615
+ },
+ {
+  "file": "mood-04-4.webp",
+  "source": "К1 Муд.pdf",
+  "page": 4,
+  "w": 648,
+  "h": 972
+ },
+ {
+  "file": "mood-04-5.webp",
+  "source": "К1 Муд.pdf",
+  "page": 4,
+  "w": 473,
+  "h": 400
+ },
+ {
+  "file": "mood-04-6.webp",
+  "source": "К1 Муд.pdf",
+  "page": 4,
+  "w": 646,
+  "h": 646
+ },
+ {
+  "file": "mood-04-7.webp",
+  "source": "К1 Муд.pdf",
+  "page": 4,
+  "w": 936,
+  "h": 987
+ },
+ {
+  "file": "mood-04-9.webp",
+  "source": "К1 Муд.pdf",
+  "page": 4,
+  "w": 473,
+  "h": 590
+ },
+ {
+  "file": "mood-05-1.webp",
+  "source": "К1 Муд.pdf",
+  "page": 5,
+  "w": 969,
+  "h": 1182
+ },
+ {
+  "file": "mood-05-2.webp",
+  "source": "К1 Муд.pdf",
+  "page": 5,
+  "w": 478,
+  "h": 769
+ },
+ {
+  "file": "mood-05-3.webp",
+  "source": "К1 Муд.pdf",
+  "page": 5,
+  "w": 542,
+  "h": 662
+ },
+ {
+  "file": "mood-05-4.webp",
+  "source": "К1 Муд.pdf",
+  "page": 5,
+  "w": 803,
+  "h": 791
+ }
+]

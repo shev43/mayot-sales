@@ -3,25 +3,46 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  height: 100%;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-cream text-graphite font-sans antialiased;
+  overscroll-behavior: none;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+input[type="range"] {
+  accent-color: #1f5c4a;
+}
+
+/* ?hud=0 — чистий кадр без панелей */
+html[data-hud="off"] .hud-root {
+  display: none;
+}
+
+/* тихі панелі поверх сцени */
+.panel {
+  @apply rounded-sm border border-sand/80 bg-cream/85 shadow-card backdrop-blur-md;
+}
+
+.eyebrow {
+  @apply text-[10px] uppercase tracking-[0.18em] text-stone;
+}
+
+.btn {
+  @apply rounded-sm border border-sand px-3 py-1.5 text-[11px] uppercase tracking-[0.08em] text-graphite/80 transition;
+}
+.btn:hover {
+  @apply border-emerald text-graphite;
+}
+.btn[aria-pressed="true"] {
+  @apply border-emerald bg-emerald text-cream;
+}
+.btn:focus-visible {
+  @apply outline outline-2 outline-offset-2 outline-emerald;
 }

@@ -1,0 +1,65 @@
+"use client";
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { defaultGeoref, defaultEnvelope, type Georef, type Envelope, type Vec2 } from "@/lib/geo";
+
+export type LayerKey =
+  | "terrain" | "ortho" | "contours" | "envelope" | "sketch" | "s1a" | "s2" | "parking" | "water" | "trees";
+
+export type Preset = "Overview" | "S1A" | "S2" | "S3" | "Entrance";
+export type Lang = "uk" | "en";
+
+interface State {
+  layers: Record<LayerKey, boolean>;
+  toggleLayer: (k: LayerKey) => void;
+  preset: Preset;
+  setPreset: (p: Preset) => void;
+  presetNonce: number;                 // щоб повторний клік по тому ж пресету теж летів
+  georef: Georef;
+  setGeoref: (g: Partial<Georef>) => void;
+  resetGeoref: () => void;
+  envelope: Envelope | null;
+  setEnvelope: (e: Partial<Envelope>) => void;
+  resetEnvelope: () => void;
+  sketchBox: { min: Vec2; max: Vec2; yMin: number; yMax: number } | null;
+  setSketchBox: (b: State["sketchBox"]) => void;
+  lang: Lang;
+  setLang: (l: Lang) => void;
+  hour: number;
+  month: number;
+  setSun: (hour: number, month: number) => void;
+}
+
+export const useStore = create<State>()(
+  persist(
+    (set, get) => ({
+      layers: {
+        terrain: true, ortho: true, contours: true, envelope: true, sketch: true,
+        s1a: true, s2: true, parking: false, water: true, trees: true,
+      },
+      toggleLayer: (k) => set((s) => ({ layers: { ...s.layers, [k]: !s.layers[k] } })),
+      preset: "Overview",
+      presetNonce: 0,
+      setPreset: (p) => set((s) => ({ preset: p, presetNonce: s.presetNonce + 1 })),
+      georef: defaultGeoref(),
+      setGeoref: (g) => set((s) => ({ georef: { ...s.georef, ...g } })),
+      resetGeoref: () => set({ georef: defaultGeoref() }),
+      envelope: null,
+      setEnvelope: (e) =>
+        set((s) => ({ envelope: { ...(s.envelope ?? defaultEnvelope(s.sketchBox)), ...e } })),
+      resetEnvelope: () => set((s) => ({ envelope: defaultEnvelope(s.sketchBox) })),
+      sketchBox: null,
+      setSketchBox: (b) =>
+        set((s) => ({ sketchBox: b, envelope: s.envelope ?? defaultEnvelope(b) })),
+      lang: "uk",
+      setLang: (l) => set({ lang: l }),
+      hour: 10,
+      month: 7,
+      setSun: (hour, month) => set({ hour, month }),
+    }),
+    {
+      name: "mayot-scene",
+      partialize: (s) => ({ georef: s.georef, envelope: s.envelope, layers: s.layers, lang: s.lang }),
+    },
+  ),
+);
